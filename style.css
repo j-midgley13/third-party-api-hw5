@@ -4,13 +4,14 @@ body {
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  text-align: center;
 }
 
 .jumbotron {
@@ -25,21 +26,26 @@ textarea{
   white-space: pre-wrap;
 }
 
+
+
 .time-block{
   text-align: center;
   border-radius: 15px;
+  width: 80%;
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
+  margin: auto;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  width: 10%;
 }
 
 .past {
