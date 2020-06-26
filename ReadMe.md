@@ -33,3 +33,4 @@ THEN the saved events persist
 
 ## Summary
 ------------
+This assignment was another tough one! I recieved help and the code I felt I was doing was just close to copying. I didn't feel right about it especially because I didn't understand the code I was doing. I almost started from scratch and made it more my own. I got it to format correctly and get into the local storage.

@@ -9,20 +9,20 @@ $(document).ready(function() {
 
   $(".time-block").each(function() {
     var hour = moment().hour();
-    var j = $(this).data();
-    // console.log(j);
     // console.log(hour);
-    console.log(this);
-    if ($(this) === hour) {
-        $(this).addClass("present")
-    }
-    else if ($(this) > hour) {
+    // console.log(this);
+    var data = $(this).data();
+    console.log(data);
+    if (data > hour) {
         $(this).addClass("future")
     }
-    else if ($(this) < hour) {
+    else if (data < hour) {
         $(this).addClass("past")
     }
-    
+    else {
+        $(this).addClass("past")
+    }
+    console.log(this);
   }); 
 
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
     });
 
-// function recallData
+
 
 });
 
