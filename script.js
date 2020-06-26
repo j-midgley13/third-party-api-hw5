@@ -1,59 +1,66 @@
 // start of js and jQuery
-// Just getting formatting for rows
-var currentDay = moment().format("MM/DD/YYYY")
-$("#currentDay").text(currentDay)
+// My last block of script I didn't understand!
+// I got help from someone but I wasn't quite following more just taking code without understanding.
+// Went back to some more original code so I could do my own.
+$(document).ready(function() {
 
-// var hourRow = $("<div>").addClass("row");
+    var currentDay = moment().format("MM/DD/YYYY")
+    $("#currentDay").text(currentDay)
 
-// var hourBlock = $("<textarea>").addClass("hour").text("9 am");
-
-// var notesBlock = $("<input>").addClass("time-block").attr("placeholder", "Enter Notes");
-
-// var saveBtn = $("<button>").addClass("saveBtn").text("save");
-
-// hourRow.append(hourBlock).append(notesBlock).append(saveBtn);
-
-// var container = $(".container").append(hourRow);
-
-dayPlanner();
-
-function dayPlanner() {
-    console.log("dayPlanner function");
-
-    var hour = ["9 am", "10 am", "11 am", "12 am", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm"];
-
-    for (let i = 0; i < hour.length; i++) {
-        
-        var hourBlock = $("<textarea>").addClass("hour").attr("data-value", i).text(hour[i]);
-
-        var notesBlock = $("<input>").addClass("time-block").attr("placeholder", "Enter Notes");
-
-        var saveBtn = $("<button>").addClass("saveBtn").text("save");
-
-        var hourRow = $("<div>").addClass("row");
-
-        hourRow.append(hourBlock).append(notesBlock).append(saveBtn);
-
-        var container = $(".container").append(hourRow);
-        
+  $(".time-block").each(function() {
+    var hour = moment().hour();
+    var j = $(this).data();
+    // console.log(j);
+    // console.log(hour);
+    console.log(this);
+    if ($(this) === hour) {
+        $(this).addClass("present")
     }
+    else if ($(this) > hour) {
+        $(this).addClass("future")
+    }
+    else if ($(this) < hour) {
+        $(this).addClass("past")
+    }
+    
+  }); 
+
 
     $(".saveBtn").click(function (event) {
-        console.log("save button clicked");
+        console.log("Save Button Clicked");
         event.preventDefault();
 
-        // var logBtn = $(this);
-        // var hourValue = logBtn.
-        // ^ Need to access hour value of button-clicked row!
-        
-        
+            var logBtn = $(this);
+            console.log(this);
+            var hourValue = logBtn.siblings("div").data();
+            console.log(hourValue);
 
-    })
+            var notesValue = logBtn.siblings("textarea").val().trim();
+            console.log(notesValue);
+
+            localStorage.setItem(JSON.stringify(hourValue), notesValue);
+            // localStorage.setItem("Notes", notesValue);
+
+            var input = localStorage.getItem(notesValue);
+
+            $(this).siblings("input").val(notesValue);
+
+
+    });
+
+// function recallData
+
+});
+
+
+
+
+
 
     
 
 
-}
+
 
 
 
